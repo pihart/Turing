@@ -1,0 +1,41 @@
+---
+layout: default
+title: Turing Machine Syntax Transpiler
+---
+<p>Current valid syntax:
+<pre>
+init: initState
+accept: acceptState
+
+matchState {
+    1,_,0,1,_
+    _,1,_,0,1
+    &gt;,-,-,&gt;,&lt;
+    newState
+}
+
+matchState {
+    0,0,0,0,0
+    0,0,0,0,0
+    -,-,-,-,-
+    newState
+
+    // comment
+    0,0,0,0,1
+    1,0,0,0,0
+    >,-,-,-,<
+    newState
+}
+</pre>
+Functions are also supported but are documented only in examples directory.
+</p>
+<textarea placeholder="Enter augmented syntax code; Submitting will replace this code with transpiled code." id="code"
+          style="width: 100%" rows="20"></textarea>    <br>
+<input type="submit" onclick="submit()"
+       value="Convert">
+<script src="index.js"></script>
+<script>
+    const submit = () => {
+        document.querySelector('#code').value = transpile(document.querySelector('#code').value).join("\n");
+    };
+</script>

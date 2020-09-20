@@ -1,0 +1,37 @@
+init: Duplicate
+accept: Accept
+
+
+Duplicate = copyRightAfter(3,1,2) -> ZeroOutput
+
+ZeroOutput = appendZero(3,3) -> Shift
+    \\ Puts a 0 in the output tape (3)
+    \\ This is required for when input is 0
+
+\\ Moves head on tape 1 left
+Shift = left(3,1) -> MultiplyDigit
+
+Reset = after(3,2,3) -> PlaceShift
+
+PlaceShift = appendZero(3,2) -> Shift
+
+
+\\ Adds tape 2 to tape 3 iff digit on tape 1 is 1
+MultiplyDigit {
+
+    0,_,_
+    0,0,_
+    <,>,-
+    MultiplyDigit
+
+    1,_,_
+    1,_,_
+    -,<,<
+    addLeft(3,3,2,3) -> Reset
+
+    _,_,_
+    _,_,_
+    -,-,-
+    Accept
+
+}

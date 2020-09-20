@@ -1,0 +1,39 @@
+init: AddSampleData
+accept: Accept
+
+
+\\ Run on the website by feeding sample data 1 into input tape 2
+
+AddSampleData {
+
+    a,_,_
+    _,1,_
+    >,-,-
+    copyRightAfter(3,2,3) -> Double
+        \\ Syntax: copyRight(numTapes, sourceTape, ...destinationTapes)
+        \\ "Right" means only copy moving rightwards from the head
+        \\ "After" means end one spot to the right of the number
+
+}
+
+Double {
+
+    0,_,_
+    0,_,0
+    -,<,-
+    addLeft(3,2,2,3) -> Align
+        \\ Syntax: addLeft(numTapes, outputTape, inputTape1, inputTape2)
+
+    1,_,_
+    1,_,0
+    -,<,-
+    addLeft(3,2,2,3) -> Align
+        \\ Syntax: addLeft(numTapes, outputTape, inputTape1, inputTape2)
+
+}
+
+Align = end(3,1,2,3) -> Final
+    \\ Syntax: end(numTapes, ...tapesToGoToEndOf)
+
+Final = addLeft(3,3,1,2) -> Accept
+    \\ Syntax: addLeft(numTapes, outputTape, inputTape1, inputTape2)
