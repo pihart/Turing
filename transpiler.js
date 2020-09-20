@@ -447,7 +447,7 @@ const transpile = code => {
                 }
             }
         } catch (e) {
-            alert(`Error in state ${state}, lineNumber ${index}, line ${line}, lineIndex ${lineIndex}`)
+            console.error(`Error in state ${state}, lineNumber ${index}, line ${line}, lineIndex ${lineIndex}`);
         }
     });
     usedAlgorithms.length = 0;

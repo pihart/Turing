@@ -4402,13 +4402,23 @@ accept: Accept
 
 // Run on the website by feeding sample data 1 into input tape 2
 
+
 AddSampleData,a,_,_,_,_
 copyRight-2-3-Double,_,1,_,_,_,>,-,-,-,-
+// Syntax: copyRight(numTapes, sourceTape, ...destinationTapes)
+// "After" means go one spot to the right of the number
 
 
 
 Double,0,_,_,_,_
 addLeft-4-2-3-Align,0,_,0,_,_,-,<,-,-,-
+// Syntax: addLeft(numTapes, outputTape, inputTape1, inputTape2)
 
 Double,1,_,_,_,_
 addLeft-4-2-3-Align,1,_,0,_,_,-,<,-,-,-
+// Syntax: addLeft(numTapes, outputTape, inputTape1, inputTape2)
+
+
+// Syntax: end(numTapes, ...tapesToGoToEndOf)
+
+// Syntax: addLeft(numTapes, outputTape, inputTape1, inputTape2)

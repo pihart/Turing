@@ -2,7 +2,7 @@ init: AddSampleData
 accept: Accept
 
 
-\\ Run on the website by feeding sample data 1 into input tape 2
+// Run on the website by feeding sample data 1 into input tape 2
 
 AddSampleData {
 
@@ -10,8 +10,8 @@ AddSampleData {
     _,1,_,_,_
     >,-,-,-,-
     copyRightAfter(5,2,3) -> Double
-        \\ Syntax: copyRight(numTapes, sourceTape, ...destinationTapes)
-        \\ "After" means go one spot to the right of the number
+        // Syntax: copyRight(numTapes, sourceTape, ...destinationTapes)
+        // "After" means go one spot to the right of the number
 
 }
 
@@ -21,18 +21,18 @@ Double {
     0,_,0,_,_
     -,<,-,-,-
     addLeft(5,4,2,3) -> Align
-        \\ Syntax: addLeft(numTapes, outputTape, inputTape1, inputTape2)
+        // Syntax: addLeft(numTapes, outputTape, inputTape1, inputTape2)
 
     1,_,_,_,_
     1,_,0,_,_
     -,<,-,-,-
     addLeft(5,4,2,3) -> Align
-        \\ Syntax: addLeft(numTapes, outputTape, inputTape1, inputTape2)
+        // Syntax: addLeft(numTapes, outputTape, inputTape1, inputTape2)
 
 }
 
 Align = end(5,1,4) -> Final
-    \\ Syntax: end(numTapes, ...tapesToGoToEndOf)
+    // Syntax: end(numTapes, ...tapesToGoToEndOf)
 
 Final = addLeft(5,5,1,4) -> Accept
-    \\ Syntax: addLeft(numTapes, outputTape, inputTape1, inputTape2)
+    // Syntax: addLeft(numTapes, outputTape, inputTape1, inputTape2)
